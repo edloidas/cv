@@ -70,7 +70,11 @@ body {
   width: $meta__width;
 
   &__category:not(:first-child) {
-    margin: 3rem 0 0;
+    margin-top: 3rem;
+  }
+
+  &__category:last-child {
+    margin-bottom: 3rem;
   }
 
   &__section {
@@ -78,8 +82,30 @@ body {
   }
 
   &__entry {
-    padding: 0.2rem;
-    text-align: center;
+    position: relative;
+    padding: 0.2rem 0 0 calc($icon__size * 5.5);
+
+    &::before,
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      height: $icon__size;
+    }
+
+    &::before {
+      width: calc($icon__size * 5);
+      background-image: $icon__star--empty;
+    }
+
+    &::after {
+      background-image: $icon__star--full;
+    }
+
+    @for $i from 1 to 5 {
+      &--$(i)-star::after { width: calc($icon__size * $i); }
+    }
   }
 }
 
@@ -90,52 +116,10 @@ body {
 }
 
 .section__title {
+  margin-bottom: 0.5rem;
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
-}
-
-.links {
-  display: flex;
-  width: $meta__width;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  &__entry {
-    display: inline-block;
-    position: relative;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: calc($meta__width / 2);
-    padding: 5px 5px 5px calc($icon__size + 10px);
-    box-sizing: border-box;
-    border-radius: 3px;
-
-    /* stylelint-disable number-leading-zero */
-    &:hover {
-      background-color: $color__shadow.1;
-    }
-
-    &:active {
-      background-color: $color__shadow.2;
-    }
-    /* stylelint-enable */
-  }
-
-  &__icon {
-    display: inline-block;
-    position: absolute;
-    top: 7px;
-    left: 5px;
-    width: $icon__size;
-    height: $icon__size;
-    border-radius: $border__radius;
-    filter: invert(4%);
-
-    &--1star {
-      background-image: $icon__star;
-    }
-  }
 }
 
 /*

@@ -23,5 +23,5 @@ html( lang="en" )
             div.skills__section
               div.section__title #{section.title}
               each skill in section.enrties
-                div.skills__entry
-                  | #{skill.title} : #{skill.rank}
+                div( class=`skills__entry--${skill.rank}-star` ).skills__entry
+                  | #{skill.title}

@@ -10,6 +10,7 @@ const postcssConfig = {
   plugins: {
     // postcss-import is replaced by webpack's import
     'postcss-import': {},
+    'postcss-for': {},
     'postcss-mixins': {},
     'postcss-simple-vars': {},
     'postcss-nested': {},
