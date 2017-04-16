@@ -1,0 +1,10 @@
+/*
+Color pallet
+stylelint-disable declaration-block-semicolon-newline-after
+*/
+
+$color__bg:     #f5f5f5;
+$color__text:   #111111;
+$color__box:    #882220;
+$color__link:   #6495ed;
+$color__shadow: #111111;

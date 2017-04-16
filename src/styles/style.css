@@ -1,0 +1,190 @@
+@import "normalize.css";
+@import "colors.css";
+@import "fonts.css";
+@import "icons.css";
+
+$font__size: 16px;
+$meta__width: 330px;
+$border__radius: 5px;
+
+html,
+body {
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  font-size: $font__size;
+}
+
+body {
+  background: $color__bg;
+  padding-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.link {
+  color: $color__link;
+}
+
+.title {
+  display: inline-block;
+  background-color: $color__box;
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding: 0.2em;
+  border-radius: $border__radius;
+  font-family: $font__title;
+  font-size: 3rem;
+  font-weight: bold;
+  color: $color__bg;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.meta,
+.skills {
+  font-family: $font__text;
+  font-size: 1.5rem;
+  color: $color__text;
+}
+
+.meta {
+  text-align: center;
+
+  &__about {
+    line-height: 1.25em;
+  }
+}
+
+.skills {
+  width: $meta__width;
+
+  &__category:not(:first-child) {
+    margin: 3rem 0 0;
+  }
+
+  &__section {
+    margin: 2rem 0 0;
+  }
+
+  &__entry {
+    padding: 0.2rem;
+    text-align: center;
+  }
+}
+
+.category__title {
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.section__title {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  width: $meta__width;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &__entry {
+    display: inline-block;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc($meta__width / 2);
+    padding: 5px 5px 5px calc($icon__size + 10px);
+    box-sizing: border-box;
+    border-radius: 3px;
+
+    /* stylelint-disable number-leading-zero */
+    &:hover {
+      background-color: $color__shadow.1;
+    }
+
+    &:active {
+      background-color: $color__shadow.2;
+    }
+    /* stylelint-enable */
+  }
+
+  &__icon {
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    width: $icon__size;
+    height: $icon__size;
+    border-radius: $border__radius;
+    filter: invert(4%);
+
+    &--1star {
+      background-image: $icon__star;
+    }
+  }
+}
+
+/*
+Mobile devices, minimized view
+*/
+@media (max-width: 480px) {
+  .name {
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+/*
+Mobile devices, iPhone 5 and smaller
+*/
+@media (max-width: 360px) {
+  html {
+    font-size: calc($font__size - 2px);
+  }
+
+  .links__icon {
+    top: 5px;
+  }
+}
+
+/*
+Large screens, scale x1.5
+*/
+@media (min-width: 1921px) {
+  html {
+    font-size: calc($font__size * 1.5);
+  }
+
+  .title {
+    margin-top: 40px;
+  }
+
+  .links {
+    width: 440px;
+
+    &__entry {
+      padding-left: calc($icon__size * 1.5 + 10px);
+    }
+
+    &__icon {
+      top: 13px;
+      left: 10px;
+      transform: scale(1.5);
+    }
+  }
+}

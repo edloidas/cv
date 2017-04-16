@@ -1,0 +1,27 @@
+html( lang="en" )
+  include ./head.pug
+
+  body.container
+    div.title CV
+
+    div.meta
+      h2.meta__name
+        | #{data.personal.name} #{data.personal.surname}
+      p.meta__about
+        | #{data.personal.position} at&#32;
+        a( href=data.links.company ).meta__company.link #{data.personal.company}<br/>
+        | &amp; 3d graphics enthusiast
+
+      p.meta__email
+        a(href="mailto:"+data.personal.email).link #{data.personal.email}
+
+    div.skills
+      each category in data.skills
+        div.skills__category
+          div.category__title #{category.title}
+          each section in category.sections
+            div.skills__section
+              div.section__title #{section.title}
+              each skill in section.enrties
+                div.skills__entry
+                  | #{skill.title} : #{skill.rank}
