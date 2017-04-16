@@ -12,8 +12,13 @@ module.exports = {
   },
   links: {
     site: 'https://edloidas.com',
-    cv: '#',
+    company: 'https://enonic.com/',
+    linkedin: 'https://www.linkedin.com/in/edloidas/',
   },
+  languages: [
+    { title: 'Russian', level: 'Native' },
+    { title: 'English', level: 'Upper Intermediate' },
+  ],
   skills: [
     {
       title: 'Language',
@@ -31,6 +36,12 @@ module.exports = {
           enrties: [
             { title: 'TypeScript', rank: 4 },
             { title: 'Flow', rank: 3 },
+          ],
+        },
+        {
+          title: 'HTML',
+          enrties: [
+            { title: 'Pug (Jade)', rank: 3 },
           ],
         },
         {

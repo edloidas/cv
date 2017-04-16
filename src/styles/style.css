@@ -4,7 +4,7 @@
 @import "icons.css";
 
 $font__size: 16px;
-$meta__width: 330px;
+$meta__width: 320px;
 $border__radius: 5px;
 
 html,
@@ -51,24 +51,49 @@ body {
   text-align: center;
 }
 
+.note {
+  font-size: 0.75em;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .meta,
+.langs,
 .skills {
   font-family: $font__text;
   font-size: 1.5rem;
   color: $color__text;
 }
 
+.langs,
+.skills {
+  width: $meta__width;
+}
+
 .meta {
   text-align: center;
+
+  &__name {
+    text-decoration: none;
+  }
 
   &__about {
     line-height: 1.25em;
   }
 }
 
-.skills {
-  width: $meta__width;
+.langs {
+  margin-bottom: 2rem;
 
+  &__title {
+    font-weight: bold;
+  }
+}
+
+.skills {
   &__category:not(:first-child) {
     margin-top: 3rem;
   }
@@ -156,19 +181,5 @@ Large screens, scale x1.5
 
   .title {
     margin-top: 40px;
-  }
-
-  .links {
-    width: 440px;
-
-    &__entry {
-      padding-left: calc($icon__size * 1.5 + 10px);
-    }
-
-    &__icon {
-      top: 13px;
-      left: 10px;
-      transform: scale(1.5);
-    }
   }
 }

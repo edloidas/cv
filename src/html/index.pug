@@ -5,15 +5,22 @@ html( lang="en" )
     div.title CV
 
     div.meta
-      h2.meta__name
-        | #{data.personal.name} #{data.personal.surname}
+      h2
+        a( href=data.links.site ).meta__name.link #{data.personal.name} #{data.personal.surname}
       p.meta__about
         | #{data.personal.position} at&#32;
-        a( href=data.links.company ).meta__company.link #{data.personal.company}<br/>
-        | &amp; 3d graphics enthusiast
+        a( href=data.links.company ).meta__company.link #{data.personal.company}
+        |.<br>
+        span.note
+          | see&#32;
+          a( href=data.links.linkedin ).link LinkedIn
+          | &#32;for more info on the projects.
 
-      p.meta__email
-        a(href="mailto:"+data.personal.email).link #{data.personal.email}
+    div.langs
+      each lang in data.languages
+        div
+          span.langs__title #{lang.title}
+          | : #{lang.level}
 
     div.skills
       each category in data.skills
